@@ -51,9 +51,9 @@
       FabricateBoard
     },
     data() {
-      var self = this;
+      const self = this;
       window.addEventListener("resize", function() {
-        var isFull = document.isFullScreen || document.mozIsFullScreen || document.webkitIsFullScreen;
+        let isFull = document.isFullScreen || document.mozIsFullScreen || document.webkitIsFullScreen;
         if (isFull === undefined) {
           isFull = false
         }
@@ -77,10 +77,10 @@
       }
     },
     created(){
-      var seconds = this.timeSeconds.getSeconds()
+      const seconds = this.timeSeconds.getSeconds();
       this.timeSeconds = this.timeSeconds.getTime()
       this.timeStr = formatDate(this.timeSeconds,'yyyy/MM/dd hh:mm')
-      var self = this
+      const self = this;
       setTimeout(() => {
         self.timeSeconds += (60-seconds)*1000
         self.timeStr = formatDate(self.timeSeconds,'yyyy/MM/dd hh:mm')
@@ -94,7 +94,7 @@
       //打开轮播
       openCarousel(){
         this.carousel = true
-        var self = this
+        const self = this;
         this.timer = setInterval(() => {
           self.activeKey = parseInt(self.activeKey) == 2 ? '1' : String(parseInt(self.activeKey)+1)
         },3000)
@@ -187,10 +187,12 @@
     background: #2c2c2c;
     color: #fff;
     font-size: 16px;
+    border-bottom: 1px solid rgba(232, 232, 232, 0.1);
   }
   .mes-board .ant-table-tbody > tr > td {
     background: #2c2c2c;
     color: #ccc;
+    border-bottom: 1px solid rgba(232, 232, 232, 0.1);
   }
   .mes-board .ant-table-tbody > tr:hover td{
     color: #000;
