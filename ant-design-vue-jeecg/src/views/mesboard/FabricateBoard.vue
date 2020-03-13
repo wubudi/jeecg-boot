@@ -169,6 +169,11 @@
   ];
   export default {
     name: "FabricateBoard",
+    props: {
+      lineID: {
+        default: ''
+      },
+    },
     data() {
       return{
         columns0: columns0,
@@ -176,14 +181,22 @@
         columns: columns,
         data: data,
       }
+    },
+    created(){
+      console.log(this.lineID+'====>init1')
+    },
+    watch: {
+      lineID(){
+        console.log(this.lineID+'====>change1')
+      }
     }
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .ant-table-wrapper,.product-general {
     border-radius: 4px;
-    background: #fff;
+    background: #2c2c2c;
   }
   .product-general {
     padding: 20px 30px;
@@ -198,6 +211,7 @@
   .product-general>div>div:first-child{
     font-size: 16px;
     line-height: 32px;
+    color: #fff;
   }
   .product-general>div>div:last-child{
     font-size: 16px;

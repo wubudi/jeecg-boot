@@ -3,17 +3,17 @@
     <a-row :gutter="24">
       <a-col :sm="24" :md="12" :xl="8" :style="{ marginBottom: '24px' }">
         <div class="col-item top-item">
-          <a-list itemLayout="horizontal" :dataSource="data">
+          <a-list :dataSource="data">
             <a-list-item slot="renderItem" slot-scope="item, index">
               <a-list-item-meta
                 :description="item.message"
               >
                 <span slot="title">{{item.title}}</span>
-                <a-avatar
-                  :size="80"
+                <span
+                  style="font-size: 80px;color: #1e88e5"
                   slot="avatar"
-                  icon="smile"
-                />
+                  class="icon mesicon index_kanban_"
+                ></span>
               </a-list-item-meta>
             </a-list-item>
           </a-list>
@@ -27,11 +27,11 @@
                 :description="item.message"
               >
                 <span slot="title">{{item.title}}</span>
-                <a-avatar
-                  :size="80"
+                <span
+                  style="font-size: 80px;color: #7460ee"
                   slot="avatar"
-                  icon="smile"
-                />
+                  class="icon mesicon index_icon_tongji_"
+                ></span>
               </a-list-item-meta>
             </a-list-item>
           </a-list>
@@ -45,11 +45,11 @@
                 :description="item.message"
               >
                 <span slot="title">{{item.title}}</span>
-                <a-avatar
-                  :size="80"
+                <span
+                  style="font-size: 80px;color: #26c7da"
                   slot="avatar"
-                  icon="smile"
-                />
+                  class="icon mesicon index_icon_jihexunjian_"
+                ></span>
               </a-list-item-meta>
             </a-list-item>
           </a-list>
@@ -65,7 +65,7 @@
               <a-list-item-meta :description="item.message">
 
               </a-list-item-meta>
-              <div><a-icon :style="{ marginRight: '4px' }" type="setting" theme="filled" />{{item.createTime}}</div>
+              <div><span style="margin-right: 4px;color: #979797" class="icon mesicon icon_time"></span>{{item.createTime}}</div>
             </a-list-item>
             <div slot="header" class="message-header">最近一周消息</div>
           </a-list>
@@ -153,7 +153,7 @@
     },
     methods: {
       settingChange(type,checked){
-          alert(type)
+          this.$message.success(type)
       }
     }
   }
@@ -173,6 +173,9 @@
   .top-item h4{
     font-size: 18px;
     line-height: 40px;
+  }
+  .ant-list-item-meta-avatar {
+    line-height: 80px;
   }
   .col-item {
     background: #fff;

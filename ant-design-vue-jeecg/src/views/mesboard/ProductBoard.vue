@@ -1,38 +1,33 @@
 <template>
   <a-row :gutter="24">
     <a-col :sm="24" :md="8" :xl="8">
-      <div class="product-general">
-        <div>
-          <div>计划产量</div>
-          <div>5000</div>
-        </div>
-        <div>
-          <div>当前产量</div>
-          <div>4500</div>
-        </div>
-        <div>
-          <div>达成率</div>
-          <div>95%</div>
-        </div>
-      </div>
-      <div class="product-general product-last">
-        <div>
-          <div>机型</div>
-          <div>5000</div>
-        </div>
-        <div>
-          <div>投入数</div>
-          <div>5000</div>
-        </div>
-        <div>
-          <div>产出数</div>
-          <div>95%</div>
-        </div>
-        <div>
-          <div>直通率</div>
-          <div>95%</div>
-        </div>
-      </div>
+      <a-row type="flex" justify="space-between" :gutter="16">
+        <a-col class="gutter-row" :span="12">
+          <div class="gutter-box">
+            <div>机型总数:</div>
+            <div>8324</div>
+          </div>
+        </a-col>
+        <a-col class="gutter-row" :span="12">
+          <div class="gutter-box">
+            <div>客户数:</div>
+            <div>98</div>
+          </div>
+        </a-col>
+        <a-col class="gutter-row" :span="12">
+          <div class="gutter-box">
+            <div>订单总数:</div>
+            <div>9999</div>
+          </div>
+        </a-col>
+        <a-col class="gutter-row" :span="12">
+          <div class="gutter-box">
+            <div>已出货:</div>
+            <div>1682</div>
+          </div>
+        </a-col>
+      </a-row>
+
       <div>
         <a-table :columns="columns0" :dataSource="data0" :pagination="false">
         </a-table>
@@ -60,13 +55,16 @@
   ];
   const columns = [
     {
-      title: '时段',
-      dataIndex: 'time',
+      title: '机型',
+      dataIndex: 'machine',
     },{
-      title: '计划数',
-      dataIndex: 'planNum',
+      title: '客户',
+      dataIndex: 'customer',
     },{
-      title: '投入',
+      title: '订单数',
+      dataIndex: 'orderNum',
+    },{
+      title: '投入数',
       dataIndex: 'input',
     },{
       title: '产出数',
@@ -77,10 +75,7 @@
     },{
       title: '不良数',
       dataIndex: 'bls',
-    },{
-      title: '直通率',
-      dataIndex: 'ztl',
-    },
+    }
   ];
   const data0 = [
     {
@@ -113,62 +108,49 @@
   const data = [
     {
       key: '1',
-      time: '08-09',
-      planNUm: '3000',
+      machine: 'SMB-09',
+      customer: 'DYSON',
+      orderNum: '3000',
       input: '3000',
       output: '2900',
       radio: '96.67%',
       bls: '1000',
-      ztl: '96.67%'
     },{
       key: '2',
-      time: '08-09',
-      planNUm: '3000',
+      machine: 'SMB-09',
+      customer: 'DYSON',
+      orderNum: '3000',
       input: '3000',
       output: '2900',
       radio: '96.67%',
       bls: '1000',
-      ztl: '96.67%'
     },{
       key: '3',
-      time: '08-09',
-      planNUm: '3000',
+      machine: 'SMB-09',
+      customer: 'DYSON',
+      orderNum: '3000',
       input: '3000',
       output: '2900',
       radio: '96.67%',
       bls: '1000',
-      ztl: '96.67%'
     },{
       key: '4',
-      time: '08-09',
-      planNUm: '3000',
+      machine: 'SMB-09',
+      customer: 'DYSON',
+      orderNum: '3000',
       input: '3000',
       output: '2900',
       radio: '96.67%',
       bls: '1000',
-      ztl: '96.67%'
-    },{
-      key: '5',
-      time: '08-09',
-      planNUm: '3000',
-      input: '3000',
-      output: '2900',
-      radio: '96.67%',
-      bls: '1000',
-      ztl: '96.67%'
-    },{
-      key: '6',
-      time: '08-09',
-      planNUm: '3000',
-      input: '3000',
-      output: '2900',
-      radio: '96.67%',
-      bls: '1000',
-      ztl: '96.67%'
     },
   ];
   export default {
     name: "ProductBoard",
+    props: {
+      lineID: {
+        default: ''
+      },
+    },
     data() {
       return{
         columns0: columns0,
@@ -176,38 +158,34 @@
         columns: columns,
         data: data,
       }
+    },
+    created(){
+      console.log(this.lineID+'====>init')
+    },
+    watch: {
+      lineID(){
+        console.log(this.lineID+'====>change')
+      }
     }
   }
 </script>
 
-<style scoped>
-  .ant-table-wrapper,.product-general {
+<style lang="scss" scoped>
+  .ant-table-wrapper, .gutter-box {
     border-radius: 4px;
-    background: #fff;
+    background: #2c2c2c;
+    color: #fff;
   }
-  .product-general {
-    padding: 20px 30px;
-    margin-bottom: 24px;
+  .gutter-box{
+    margin-bottom: 16px;
+    padding: 20px;
+    font-size: 16px;
+  }
+  .gutter-box>div:last-child{
     text-align: center;
-  }
-  .product-general>div{
-    display: inline-block;
-    width: 33.33333333%;
-    border-right: 1px solid #a7a7a7;
-  }
-  .product-general>div>div:first-child{
-    font-size: 16px;
-    line-height: 32px;
-  }
-  .product-general>div>div:last-child{
-    font-size: 16px;
-    line-height: 32px;
-  }
-  .product-general>div:last-child{
-    border-right: none;
-  }
-  .product-last>div{
-    display: inline-block;
-    width: 25%;
+    line-height: 48px;
+    margin-top: 10px;
+    font-size: 18px;
+    color: #68bbfe;
   }
 </style>
