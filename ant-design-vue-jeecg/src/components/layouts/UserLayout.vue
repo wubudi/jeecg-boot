@@ -4,12 +4,13 @@
       <div class="top">
         <div class="header">
           <a href="/">
-            <img src="~@/assets/logo.svg" class="logo" alt="logo">
-            <span class="title">Jeecg Boot</span>
+<!--            <img src="~@/assets/logo.svg" class="logo" alt="logo">-->
+<!--            <span class="title">Jeecg Boot</span>-->
+            <span class="icon mesicon logo_wanlida" style="color: #b7382f;font-size:32px"></span>
           </a>
         </div>
         <div class="desc">
-          Jeecg Boot 是中国最具影响力的 企业级 快速开发平台
+          漳州万利达科技有限公司数据平台
         </div>
       </div>
 
@@ -108,10 +109,12 @@
           }
         }
         .desc {
-          font-size: 14px;
-          color: rgba(0, 0, 0, 0.45);
+          font-size: 16px;
+          color: rgba(0, 0, 0, 0.5);
           margin-top: 12px;
-          margin-bottom: 40px;
+          margin-bottom: 32px;
+          letter-spacing: 2px;
+          font-weight: bolder;
         }
       }
 
@@ -119,6 +122,8 @@
         min-width: 260px;
         width: 368px;
         margin: 0 auto;
+        padding: 12px 32px;
+        background: #fff;
       }
 
       .footer {

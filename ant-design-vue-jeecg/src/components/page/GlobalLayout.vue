@@ -567,11 +567,12 @@
       height: 64px;
       position: relative;
       line-height: 64px;
-      /*padding-left: 24px;*/
+      padding-left: 0 !important;
       -webkit-transition: all .3s;
       transition: all .3s;
       background: #002140;
       overflow: hidden;
+      text-align: center;
 
       img, h1 {
         display: inline-block;
